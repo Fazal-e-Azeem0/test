@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XSS innerHTML Test</title>
+</head>
+<body>
+  <h2>Test XSS Vulnerability</h2>
+  <input id="input" placeholder="Enter HTML or script" style="width: 300px;">
+  <button onclick="run()">Inject</button>
+
+  <div id="output" style="margin-top:20px; border:1px solid black; padding:10px;"></div>
+
+  <script>
+    function run() {
+      const userInput = document.getElementById("input").value;
+      document.getElementById("output").innerHTML = userInput; // ⚠️ Vulnerable usage
+    }
+  </script>
+</body>
+</html>
